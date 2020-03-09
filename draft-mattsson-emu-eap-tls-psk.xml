@@ -11,9 +11,7 @@ href='http://xml.resource.org/authoring/rfc2629.xslt' ?>
 <rfc category="std" ipr="trust200902" docName="draft-mattsson-emu-eap-tls-psk-latest">
 <front>
 
-	<title abbrev="EAP-TLS-PSK">
-	 EAP-TLS with PSK Authentication (EAP-TLS-PSK)
-	</title>
+	<title abbrev="EAP-TLS-PSK">EAP-TLS with PSK Authentication (EAP-TLS-PSK)</title>
 
 	<author initials="J." surname="Mattsson" fullname="John Preuß Mattsson">
 		<organization>Ericsson</organization>
@@ -74,7 +72,7 @@ href='http://xml.resource.org/authoring/rfc2629.xslt' ?>
 
 <abstract>
 	<t>
-	While TLS 1.3 supports authentication with Pre-Shared Key (PSK), EAP-TLS with TLS 1.3 explicitly forbids PSK authentication except when used for resumption. This document updates EAP-TLS to allow PSK authentication and defines a new type code for such use cases.
+	While TLS 1.3 supports authentication with Pre-Shared Key (PSK), EAP-TLS with TLS 1.3 explicitly forbids PSK authentication except when used for resumption. This document specifies a separate EAP method (EAP-TLS-PSK) for use cases that require authentication based on external PSKs.
 	</t>
 </abstract>
 
@@ -92,9 +90,9 @@ href='http://xml.resource.org/authoring/rfc2629.xslt' ?>
 
 	<t>EAP-TLS <xref target="RFC5216"/> does not discuss the use of PSKs and EAP-TLS with TLS 1.3 <xref target="I-D.ietf-emu-eap-tls13"/> explicitly forbids the use of external PSKs. Nonetheless, there are examples of EAP-TLS deployments that rely on a PSK for authentication. For example, the Zigbee IP specification discusses the use of EAP-TLS with PSKs.</t>
 
-	<t>Although EAP already has an authentication method that supports PSKs (EAP-PSK <xref target="RFC4764"/>), it does not provide properties of forward secrecy or identity protection. Similary, EAP also has EAP-Pwd <xref target="RFC5931"/> for authentication based on user chosen passwords. It however relies on a Password Authenticated Key Exchange (PAKE). However, there are side-channel vulnerabilities in EAP-Pwd which are now being addressed in <xref target="I-D.harkins-eap-pwd-prime"/>. Implementing all the mitigations against side-channel attacks may not be possible in all environments.</t>
+	<t>Although EAP already has an authentication method that supports PSKs (EAP-PSK <xref target="RFC4764"/>), it does not provide properties of forward secrecy or identity protection. Similary, EAP also has EAP-Pwd <xref target="RFC5931"/> for authentication based on user chosen passwords. It however relies on a Password Authenticated Key Exchange (PAKE). There are side-channel vulnerabilities in EAP-Pwd which are now being addressed in <xref target="I-D.harkins-eap-pwd-prime"/>. Implementing all the mitigations against side-channel attacks may not be possible in all environments.</t>
 
-	<t>This document therefore updates EAP-TLS with TLS 1.3 <xref target="I-D.ietf-emu-eap-tls13"/> to allow external PSKs for mutual authentication of the peer and server.</t>
+	<t>This document therefore specifies EAP-TLS-PSK to allow external PSKs for mutual authentication of the peer and server.</t>
 
 	<section title='Requirements and Terminology'>
 		<t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED","MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 <xref target='RFC2119'/> <xref target='RFC8174'/> when, and only when, they appear in all capitals, as shown here.</t>
@@ -114,46 +112,41 @@ href='http://xml.resource.org/authoring/rfc2629.xslt' ?>
 
 	<t>What should the NAI be (e.g. can it be based on PSK id)? Does the PSK id need to have any specific properties?</t>
 
-		<section title='Mutual Authentication'>
+	<section title='Mutual Authentication'>
 			
 		<t>The EAP server and EAP peer MUST authenticate with an external PSK. In addition to the PSK, they can also authenticate with a certificate as specified in <xref target="I-D.ietf-tls-tls13-cert-with-extern-psk"/>.</t>
 
-		</section>
+	</section>
 
-		<section title='Termination'>
+	<section title='Termination'>
 			
-		</section>
+	</section>
 
 
-		<section title="Hello Retry Request" anchor="helloretry">
-		</section>
+	<section title="Hello Retry Request" anchor="helloretry">
+	</section>
 
-		<section title='Ticket Establishment' anchor="ticket">
-		</section>			
+	<section title='Ticket Establishment' anchor="ticket">
+	</section>			
 
-		<section title="Resumption" anchor="resumption">
+	<section title="Resumption" anchor="resumption">
+	</section>
 
-		</section>
-
-		<section title="Privacy" anchor="privacy">
-
+	<section title="Privacy" anchor="privacy">
 		<t>Any additional privacy considerations based on PSK ID?</t>
-		</section>
+	</section>
 
-		<section title='Fragmentation'>
-		</section>
+	<section title='Fragmentation'>
+	</section>
 
 	</section>
 
 	<section title='Identity Verification' anchor="identity">
 		<t>NAI, PSK Identity, Server Identity</t>
-		
-		
 	</section>
 
 	<section title='Key Hierarchy' anchor="keyheirarchy">
-
-<t>The key derivation is performed as defined Section 2.3 of <xref target="I-D.ietf-emu-eap-tls13"/> with the only difference being the new Type-Code.</t>
+		<t>The key derivation is performed as defined Section 2.3 of <xref target="I-D.ietf-emu-eap-tls13"/> with the only difference being the new Type-Code.</t>
 	</section>
 
 	<section title='Parameter Negotiation and Compliance Requirements'>
@@ -222,16 +215,14 @@ href='http://xml.resource.org/authoring/rfc2629.xslt' ?>
 	<?rfc include='reference.RFC.2119'?>
 	<?rfc include='reference.RFC.3748'?>
 	<?rfc include='reference.RFC.5216'?>
-	<?rfc include='reference.RFC.7542'?>
-	<?rfc include='reference.RFC.8126'?>
 	<?rfc include='reference.RFC.8174'?>
 	<?rfc include='reference.RFC.8446'?>
 	<?rfc include='reference.I-D.ietf-emu-eap-tls13'?>
-	<?rfc include='reference.I-D.ietf-tls-tls13-cert-with-extern-psk'?>
 </references>
 
 <references title='Informative references'>
 	<?rfc include='reference.RFC.4764'?>
+	<?rfc include='reference.I-D.ietf-tls-tls13-cert-with-extern-psk'?>
 	<?rfc include='reference.RFC.5931'?>
 	<?rfc include='reference.I-D.harkins-eap-pwd-prime'?>
 </references>
