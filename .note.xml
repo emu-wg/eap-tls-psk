@@ -1,0 +1,7 @@
+<note title="Discussion Venues" removeInRFC="true">
+<t>Discussion of this document takes place on the
+  EMU Working Group mailing list (emu@ietf.org),
+  which is archived at <eref target="https://mailarchive.ietf.org/arch/browse/emu/">https://mailarchive.ietf.org/arch/browse/emu/</eref>.</t>
+<t>Source for this draft and an issue tracker can be found at
+  <eref target="https://github.com/emu-wg/eap-tls-psk">https://github.com/emu-wg/eap-tls-psk</eref>.</t>
+</note>
