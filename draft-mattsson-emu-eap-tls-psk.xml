@@ -8,10 +8,7 @@ href='http://xml.resource.org/authoring/rfc2629.xslt' ?>
 <?rfc iprnotified="yes" ?>
 <?rfc toc="yes" ?>
 <?rfc symrefs="yes" ?>
-<rfc category="std" ipr="trust200902" 
-updates="draft-ietf-emu-eap-tls13" 
-docName="draft-mattsson-emu-eap-tls-psk-latest">
-
+<rfc category="std" ipr="trust200902" docName="draft-mattsson-emu-eap-tls-psk-latest">
 <front>
 
 	<title abbrev="EAP-TLS-PSK">
@@ -119,9 +116,9 @@ docName="draft-mattsson-emu-eap-tls-psk-latest">
 
 		<section title='Mutual Authentication'>
 			
-	<t>The EAP server and EAP peer MUST authenticate with an external PSK. In addition to the PSK, they can also authenticate with a certificate as specified in <xref target="I-D.ietf-tls-tls13-cert-with-extern-psk"/>.</t>
+		<t>The EAP server and EAP peer MUST authenticate with an external PSK. In addition to the PSK, they can also authenticate with a certificate as specified in <xref target="I-D.ietf-tls-tls13-cert-with-extern-psk"/>.</t>
 
-	   </section>
+		</section>
 
 		<section title='Termination'>
 			
@@ -129,7 +126,7 @@ docName="draft-mattsson-emu-eap-tls-psk-latest">
 
 
 		<section title="Hello Retry Request" anchor="helloretry">
-	   </section>
+		</section>
 
 		<section title='Ticket Establishment' anchor="ticket">
 		</section>			
@@ -157,15 +154,12 @@ docName="draft-mattsson-emu-eap-tls-psk-latest">
 	<section title='Key Hierarchy' anchor="keyheirarchy">
 
 <t>The key derivation is performed as defined Section 2.3 of <xref target="I-D.ietf-emu-eap-tls13"/> with the only difference being the new Type-Code.</t>
-		
 	</section>
 
 	<section title='Parameter Negotiation and Compliance Requirements'>
-		
 	</section>
 
 	<section title='EAP State Machines' anchor="state">
-		
 	</section>
 
 </section>
@@ -244,9 +238,7 @@ docName="draft-mattsson-emu-eap-tls-psk-latest">
 
 
 <section title="Acknowledgments" numbered="false">
-	<t>
-	The authors want to thank Elliot Lear, Alan Dekok, and Joe Salowey for their feedback on this document. 
-	</t>
+	<t>The authors want to thank Elliot Lear, Alan Dekok, and Joe Salowey for their feedback on this document.</t>
 </section>
 
 </back>
